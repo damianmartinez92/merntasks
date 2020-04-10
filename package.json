@@ -1,0 +1,19 @@
+{
+  "name": "notesmongodb",
+  "version": "1.0.0",
+  "description": "notes node mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damianmartinez92/notesmongodb.git"
+  },
+  "author": "dmartinez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damianmartinez92/notesmongodb/issues"
+  },
+  "homepage": "https://github.com/damianmartinez92/notesmongodb#readme"
+}
