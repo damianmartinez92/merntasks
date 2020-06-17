@@ -1,20 +1,24 @@
 import React from "react";
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Routes
-import Login from './Components/Auth/Login'
-import NuevaCuenta from './Components/Auth/NuevaCuenta'
-import Proyectos from './Components/Proyectos/Proyectos'
+import Login from "./Components/Auth/Login";
+import NuevaCuenta from "./Components/Auth/NuevaCuenta";
+import Proyectos from "./Components/Proyectos/Proyectos";
+
+import ProyectoState from "./Context/Proyectos/ProyectoState";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Login}/>
-        <Route exact path="/nueva-cuenta" component={NuevaCuenta}/>
-        <Route exact path="/proyectos" component={Proyectos}/>
-      </Switch>
-    </Router>
+    <ProyectoState>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/nueva-cuenta" component={NuevaCuenta} />
+          <Route exact path="/proyectos" component={Proyectos} />
+        </Switch>
+      </Router>
+    </ProyectoState>
   );
 }
 
