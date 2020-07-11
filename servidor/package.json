@@ -1,0 +1,28 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "MERN API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damianmartinez92/notesmern.git"
+  },
+  "author": "Damian Martinez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damianmartinez92/notesmern/issues"
+  },
+  "homepage": "https://github.com/damianmartinez92/notesmern#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.23"
+  }
+}
