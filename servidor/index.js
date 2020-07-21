@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 4000;
 
 // Rutas
 app.use("/api/usuarios", require("./routes/usuarios"));
+app.use("/api/auth", require("./routes/auth"));
 
 // Mensaje de conexion
 app.listen(PORT, () => {
