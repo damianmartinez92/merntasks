@@ -4,6 +4,7 @@ const router = express.Router();
 const { check } = require("express-validator");
 const authController = require("../controllers/authController");
 
+// /api/auth
 // check de express validator agrega chequeo y mensajes de error
 router.post(
   "/",
