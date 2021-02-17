@@ -1,10 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import AlertaContext from "../../Context/Alertas/AlertaContext";
+import AuthContext from "../../Context/Autenticacion/AuthContext";
 
-const NuevaCuenta = () => {
+const NuevaCuenta = (props) => {
   const alertaContext = useContext(AlertaContext);
+  const authContext = useContext(AuthContext);
   const { alerta, mostrarAlerta } = alertaContext;
+  const { mensaje, autenticado, registrarUsuario } = authContext;
 
   const [usuario, guardarUsuario] = useState({
     nombre: "",
@@ -52,7 +55,22 @@ const NuevaCuenta = () => {
     }
 
     // Pasa al action
+    registrarUsuario({
+      nombre,
+      email,
+      password,
+    });
   };
+
+  useEffect(() => {
+    if (autenticado) {
+      props.history.push("/proyectos");
+    }
+    if (mensaje) {
+      mostrarAlerta(mensaje.msg, mensaje.categoria);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mensaje, autenticado, props.history]);
 
   return (
     <div className="form-usuario">

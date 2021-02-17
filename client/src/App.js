@@ -10,9 +10,15 @@ import ProyectoState from "./Context/Proyectos/ProyectoState";
 import TareaState from "./Context/Tareas/TareaState";
 import AlertaState from "./Context/Alertas/AlertaState";
 import AuthState from "./Context/Autenticacion/AuthState";
+import tokenAuth from "./Config/token";
+// COMPONENTE PARA VALIDAR USUARIO POR PANTALLA
+import RutasPrivadas from "./Components/Rutas/RutasPrivadas";
 
 function App() {
-  console.log(process.env.REACT_APP_BACKEND_URL);
+  const token = localStorage.getItem("token");
+  if (token) {
+    tokenAuth(token);
+  }
 
   return (
     <ProyectoState>
@@ -23,7 +29,7 @@ function App() {
               <Switch>
                 <Route exact path="/" component={Login} />
                 <Route exact path="/nueva-cuenta" component={NuevaCuenta} />
-                <Route exact path="/proyectos" component={Proyectos} />
+                <RutasPrivadas exact path="/proyectos" component={Proyectos} />
               </Switch>
             </Router>
           </AuthState>
