@@ -10,14 +10,14 @@ const Tarea = ({ tarea }) => {
   const {
     eliminarTarea,
     obtenerTareas,
-    cambiarEstadoTarea,
     guardarTareaActual,
+    actualizarTarea,
   } = tareasContext;
 
   const [proyectoActual] = proyecto;
 
   const tareaEliminar = (id) => {
-    eliminarTarea(id);
+    eliminarTarea(id, proyectoActual._id);
     obtenerTareas(proyectoActual.id);
   };
 
@@ -32,7 +32,7 @@ const Tarea = ({ tarea }) => {
     } else {
       tarea.estado = true;
     }
-    cambiarEstadoTarea(tarea);
+    actualizarTarea(tarea);
   };
   return (
     <li className="tarea sombra">
@@ -67,7 +67,7 @@ const Tarea = ({ tarea }) => {
         <button
           type="button"
           className="btn btn-secundario"
-          onClick={() => tareaEliminar(tarea.id)}
+          onClick={() => tareaEliminar(tarea._id)}
         >
           Eliminar
         </button>
